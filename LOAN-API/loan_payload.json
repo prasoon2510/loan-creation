@@ -1,0 +1,13 @@
+
+{
+    "userInfo": [
+        {
+            "ipaddress": "YOUR_IP_ADDRESS",
+            "dateCreated": "2026-11-04"
+        }
+    ],
+    "subProgram": "YOUR_SUB_PROGRAM",
+    "loanAmount": 10000,
+    "applicant": {},
+    "loanType": "YOUR_LOAN_TYPE"
+}
