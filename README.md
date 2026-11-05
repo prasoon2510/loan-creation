@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 # Loan Creation API
 
@@ -75,3 +76,6 @@ Dependencies are managed using uv and pyproject.toml.
 # basic-chatbot 
 Contributors:- Srikanta, Vidya Charan, Vasanthi
 >>>>>>> origin/main
+=======
+# loan-creation
+>>>>>>> 73b34e194167ec813cde7be708380a48874d4c58
