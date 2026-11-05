@@ -1,32 +1,30 @@
-import os
-import requests
 
+import os
+import json
+import requests
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
-def get_loan_details(loan_id):
+def get_loan_details():
 
-    base_url = os.getenv("GET_API_BASE_URL")
-
+    url = os.getenv("GET_API_URL")
     username = os.getenv("GET_API_USERNAME")
     password = os.getenv("GET_API_PASSWORD")
-
     user_id = os.getenv("USER_ID")
-    location_id = os.getenv("LOCATION_ID")
 
-    if not all([base_url, username, password, loan_id]):
-        raise ValueError("Missing GET API configuration")
-
-    url = f"{base_url}/{loan_id}"
+    if not all([url, username, password]):
+        raise ValueError("Missing GET API configuration in .env")
 
     headers = {
-        "UserId": user_id,
-        "LocationId": location_id
+        "Accept": "application/json"
     }
 
-    print("\nFetching loan details...")
+    if user_id:
+        headers["UserId"] = user_id
+
+    print("\nCalling GET API...")
     print("GET URL:", url)
 
     response = requests.get(
@@ -36,13 +34,17 @@ def get_loan_details(loan_id):
         timeout=30
     )
 
-    print("GET Status Code:", response.status_code)
+    print("\nGET Status Code:", response.status_code)
+
+    if not response.ok:
+        print("\nGET API Error Response:")
+        print(response.text)
 
     response.raise_for_status()
 
     loan_data = response.json()
 
-    print("\nLoan Details:")
-    print(loan_data)
+    print("\n========== LOAN DETAILS ==========")
+    print(json.dumps(loan_data, indent=4))
 
     return loan_data
