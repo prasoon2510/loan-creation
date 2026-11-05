@@ -1,11 +1,24 @@
-# Python-generated files
+
+# Python cache files
 __pycache__/
-*.py[oc]
+*.py[cod]
+
+# Build files
 build/
 dist/
 wheels/
-*.egg-info
+*.egg-info/
 
 # Virtual environments
-.venv
+.venv/
+venv/
+
+# Environment variables and secrets
 .env
+.streamlit/secrets.toml
+
+# Local project files
+.vscode/
+
+# Local loan payload
+loan_payload.json
