@@ -1,2 +1,15 @@
+<<<<<<< HEAD
+streamlit
+openai
+python-dotenv
+pypdf
+python-docx
+python-pptx
+openpyxl
+pandas
+dotenv
+pillow
+=======
 fastapi
 uvicorn
+>>>>>>> 73b34e194167ec813cde7be708380a48874d4c58
