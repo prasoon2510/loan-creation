@@ -1,17 +1,24 @@
-<<<<<<< HEAD
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Build files
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Virtual environments
 .venv/
-__pycache__/
-*.pyc
-
-.env
-loan_payload.json
-
-.vscode/
-=======
-
 venv/
+
+# Environment variables and secrets
 .env
-__pycache__/
-*.pyc
 .streamlit/secrets.toml
->>>>>>> origin/main
+
+# Local project files
+.vscode/
+
+# Local loan payload
+loan_payload.json

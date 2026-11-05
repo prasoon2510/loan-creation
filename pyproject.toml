@@ -1,34 +1,21 @@
+
 [project]
-<<<<<<< HEAD
 name = "loan-creation-api"
 version = "0.1.0"
-description = "Add your description here"
+description = "Loan Creation API using FastAPI and Python"
 readme = "README.md"
+requires-python = ">=3.12"
+
 authors = [
     { name = "Srikanta Vai Sravan Sharma", email = "adirajusrikantasharma@gmail.com" }
 ]
-requires-python = ">=3.14"
-dependencies = [
-    "python-dotenv>=1.2.4",
-=======
-name = "loanservice"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "datetime>=6.0",
-    "dotenv>=0.9.9",
->>>>>>> 73b34e194167ec813cde7be708380a48874d4c58
-    "requests>=2.34.2",
-]
 
-[project.scripts]
-<<<<<<< HEAD
-loan-creation-api = "loan_creation_api:main"
-=======
-loanservice = "loanservice:main"
->>>>>>> 73b34e194167ec813cde7be708380a48874d4c58
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "requests",
+    "python-dotenv"
+]
 
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]

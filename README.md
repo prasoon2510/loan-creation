@@ -1,79 +1,122 @@
+
 # Loan Creation API
 
-## Project Description
+A Python-based Loan Creation API project built using
+FastAPI, Requests and uv.
 
-Python application to integrate with the
-Loan Creation REST API using HTTP POST requests.
+## Project Overview
+
+This project integrates with the Loan Management Gateway
+to create loans and retrieve loan details using REST APIs.
 
 ## Technologies Used
 
 - Python
-- uv
+- FastAPI
 - Requests
 - python-dotenv
-- REST API
-- JSON
+- uv
+- Uvicorn
+- Git and GitHub
 
-## Project Setup
+## Project Structure
+
+```text
+loan-creation-api/
+│
+├── services/
+│   ├── loan_creation_service.py
+│   └── loan_details_service.py
+│
+├── main.py
+├── .env
+├── .gitignore
+├── pyproject.toml
+├── uv.lock
+└── README.md
+```
+
+## Installation
 
 ### 1. Clone the repository
 
+```bash
 git clone <repository-url>
-
-### 2. Navigate into the project
-
 cd loan-creation-api
+```
 
-### 3. Install dependencies
+### 2. Install dependencies
 
+```bash
 uv sync
+```
 
-### 4. Configure environment variables
+### 3. Configure environment variables
 
-Create a .env file using .env.example.
+Create a `.env` file in the project root.
 
-Add the staging API configuration and credentials
-provided by the authorized team.
+Configure the required API URLs, credentials
+and other environment variables.
 
-### 5. Configure the request payload
+Never commit your actual credentials to GitHub.
 
-Create loan_payload.json with an approved test payload.
+### 4. Run the application
 
-### 6. Run the application
-
+```bash
 uv run python main.py
+```
 
-## API Details
+If running the FastAPI application through Uvicorn:
 
-Method: POST
+```bash
+uv run uvicorn main:app --reload
+```
 
-Endpoint:
-/gateway/v1/pos2/loan/publish
+## Features
 
-Query Parameter:
-offerCodeId
+- Create loans using POST API.
+- Retrieve loan details using GET API.
+- Handle API responses.
+- Handle HTTP exceptions.
+- Manage configuration through environment variables.
+- Integrate with external Loan Management Gateway APIs.
 
-Headers:
-- UserId
-- Type
-- Content-Type
-- Authorization
+## Dependency Management
+
+Add a dependency:
+
+```bash
+uv add requests
+```
+
+Remove a dependency:
+
+```bash
+uv remove requests
+```
+
+Synchronize dependencies:
+
+```bash
+uv sync
+```
+
+## Git Workflow
+
+1. Create a feature branch.
+2. Develop and test your changes.
+3. Commit your changes.
+4. Push your feature branch.
+5. Create a Pull Request.
+6. Resolve merge conflicts before merging into main.
 
 ## Security
 
-- Never commit .env.
-- Never commit applicant personal information.
-- Never expose API credentials.
-- Use authorized staging test data.
+- Do not commit `.env` files.
+- Do not expose API usernames or passwords.
+- Keep credentials in environment variables.
+- Never commit sensitive loan information.
 
-## Dependencies
+## Contributors
 
-Dependencies are managed using uv and pyproject.toml.
-=======
-# basic-chatbot 
-Contributors:- Srikanta, Vidya Charan, Vasanthi
- origin/main
-=======
-# loan-creation
-
-Contributors:- Srikanta, Vidya Charan, Vasanthi
+Loan Creation API Development Team.
