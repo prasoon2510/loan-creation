@@ -1,0 +1,96 @@
+import requests
+import os
+from dotenv import load_dotenv
+from datetime import datetime
+load_dotenv()
+api = os.getenv("base_url")
+offer_id = os.getenv("offer_code")
+user = os.getenv("user_id")
+user_category = os.getenv("user_type")
+authentication = os.getenv("auth_tkn")
+headers = {
+    "UserId": user,
+    "Type": user_category,
+    "Content-Type" : "application/json",
+    "Authorization": authentication
+}
+
+first_name = input("Enter the First Name:")
+Last_name = input("Enter the Last Name:")
+Email = input ("Enter the Email:")
+Mobile = input("Enter The Mobile Number:")
+
+params = {
+    "offerCodeId" : offer_id
+}
+
+payload = {
+    "userInfo": [
+        {
+            "ipaddress": "10.190.3.74",
+            "dateCreated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+    ],
+
+    "subProgram": "Windows",
+    "loanAmount": 23900,
+
+    "applicant": {
+
+        # Dynamic inputs from terminal
+        "firstName": first_name,
+        "lastName": Last_name,
+        "email": Email,
+        "mobile": Mobile,
+
+        # Fixed applicant details
+        "annualGrossIncome": 120000.00,
+        "annualHouseHoldGrossIncome": 120000,
+
+        "address": {
+            "country": "US",
+            "zipCode": "78216",
+            "city": "SAN ANTONIO",
+            "street1": "11765 WEST AVENUE",
+            "street2": None,
+            "state": "TX"
+        },
+
+        "employmentStatus": "EMPLOYED",
+        "occupation": "engineer",
+        "currentEmployer": "finmkt",
+
+        "monthlyHousingPayment": 500.00,
+        "citizenshipStatus": "USCITIZEN",
+        "dateOfBirth": "1981-12-01",
+        "identificationNumber":  "666308630",
+
+        "isbillingAddressSameAsInstallation": False,
+
+        "installationAddress": {
+            "country": "US",
+            "zipCode": "78216",
+            "city": "SAN ANTONIO",
+            "street1": "11765 WEST AVENUE",
+            "street2": "",
+            "state": "TX"
+        },
+
+        "isPropertyOwned": True,
+        "doYouResideAtTheProperty": True
+    },
+
+    "loanType": "POINT_OF_SALE"
+}
+response = requests.post(
+    api,
+    params=params,
+    headers=headers,
+    json=payload,
+    timeout=30
+)
+if response.status_code == 200:
+    print("Loan created, ID:", response.json()["loanId"])
+else:
+    print("Failed:", response.status_code, response.text)
+
